@@ -3,13 +3,14 @@ import Header from "../header/Header";
 import "./landingPage.css";
 import { useState } from "react";
 import { Fridge } from "../../interfaces/FridgeInterface";
+import { v4 as uuidv4 } from "uuid";
 
 const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
 
   const addFridge = (fridge: Fridge) => {
     if (chosenFridge.length < 3) {
-      setChosenFridge((prevState) => [...prevState, fridge]);
+      setChosenFridge(prevState => [...prevState, fridge]);
     }
   };
 
