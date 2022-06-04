@@ -1,0 +1,25 @@
+.chooseFridgeDiv{
+    width: 50%;
+}
+
+.chooseFridgeDiv h2{
+    margin-left: 2em;
+}
+
+.fridgesChoice{
+    display: flex;
+    justify-content: space-around;
+}
+
+.fridgeImg{
+    border: 1px solid black;
+    position: relative;
+}
+
+.fridgeImg i{
+    position: absolute;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0);
+}

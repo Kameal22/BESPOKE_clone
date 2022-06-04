@@ -56,6 +56,8 @@
     border: 1px solid black;
     cursor: pointer;
     background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* RESPONSIVE */
