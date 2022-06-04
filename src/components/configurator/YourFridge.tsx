@@ -20,7 +20,9 @@ const YourFridge: React.FC<YourFridgeProps> = (props) => {
                 backgroundColor: fridge.color,
               }}
               className="fridge"
-            ></div>
+            >
+              <i style={{ fontSize: "4em" }} className="bi bi-plus-lg"></i>
+            </div>
           );
         })}
       </div>

@@ -1,7 +1,7 @@
 export const Fridges = [
   {
     name: "Lodówka + Zamrażarka",
-    width: 120,
+    width: 140,
     height: 200,
     color: "white",
   },
