@@ -14,7 +14,7 @@ const Configurator: React.FC<ConfiguratorProps> = (props) => {
       <h1>Krok1: Wybierz układ urządzeń i fronty</h1>
 
       <div className="configuratorComponents">
-        <YourFridge />
+        <YourFridge chosenFridges={props.chosenFridges} />
         <ChooseFridge
           chosenFridges={props.chosenFridges}
           selectFridge={props.selectFridge}

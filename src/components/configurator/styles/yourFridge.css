@@ -6,3 +6,13 @@
 .yourFridgeDiv h2{
     text-align: center;
 }
+
+.fridge{
+    border: 1px solid black;
+}
+
+.yourFridge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -8,7 +8,9 @@ const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
 
   const addFridge = (fridge: Fridge) => {
-    setChosenFridge((prevState) => [...prevState, fridge]);
+    if (chosenFridge.length < 3) {
+      setChosenFridge((prevState) => [...prevState, fridge]);
+    }
   };
 
   return (

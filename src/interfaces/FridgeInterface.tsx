@@ -1,6 +1,6 @@
 export interface Fridge {
   name: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
   color: string;
 }
