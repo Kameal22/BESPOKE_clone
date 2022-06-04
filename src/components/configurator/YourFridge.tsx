@@ -1,23 +1,34 @@
 import "./styles/yourFridge.css";
 import { Fridge } from "../../interfaces/FridgeInterface";
+import { Fridges } from "../../assets/Fridges";
+import { useState } from "react";
 
 interface YourFridgeProps {
   chosenFridges: Fridge[];
+  selectFridge: (fride: Fridge) => void;
 }
 
 const YourFridge: React.FC<YourFridgeProps> = (props) => {
+  const [highlightedFridge, setHighlightedFridge] = useState<Fridge>()
+
+  const defaultFridge = Fridges[0];
+
   return (
     <div className="yourFridgeDiv">
       <h2>TWOJA LODÓWKA BESPOKE</h2>
 
       <div className="yourFridge">
+        {props.chosenFridges.length < 3 ? <div onClick={() => props.selectFridge(defaultFridge)} className="fridgeAdder"><i style={{ fontSize: "4em" }} className="bi bi-plus-lg"></i></div> : null}
         {props.chosenFridges.map((fridge) => {
           return (
             <div
+              key={fridge.id}
+              onClick={() => setHighlightedFridge(fridge)}
               style={{
                 width: fridge.width * 2,
                 height: fridge.height * 3,
                 backgroundColor: fridge.color,
+                boxShadow: highlightedFridge?.id === fridge.id ? "rgb(65 194 233) 1px 1px 15px" : "none"
               }}
               className="fridge"
             >

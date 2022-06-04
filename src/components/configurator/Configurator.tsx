@@ -2,6 +2,7 @@ import ChooseFridge from "./ChooseFridge";
 import "./styles/configurator.css";
 import YourFridge from "./YourFridge";
 import { Fridge } from "../../interfaces/FridgeInterface";
+import ChooseColors from "./ChooseColors";
 
 interface ConfiguratorProps {
   selectFridge: (fride: Fridge) => void;
@@ -14,11 +15,14 @@ const Configurator: React.FC<ConfiguratorProps> = (props) => {
       <h1>Krok1: Wybierz układ urządzeń i fronty</h1>
 
       <div className="configuratorComponents">
-        <YourFridge chosenFridges={props.chosenFridges} />
-        <ChooseFridge
-          chosenFridges={props.chosenFridges}
-          selectFridge={props.selectFridge}
-        />
+        <YourFridge selectFridge={props.selectFridge} chosenFridges={props.chosenFridges} />
+        <div className="chooseFridgeAndColorDiv">
+          <ChooseFridge
+            chosenFridges={props.chosenFridges}
+            selectFridge={props.selectFridge}
+          />
+          {props.chosenFridges.length < 1 ? null : <ChooseColors />}
+        </div>
       </div>
     </div>
   );

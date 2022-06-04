@@ -1,5 +1,5 @@
 .headerDiv{
-    width: 80%;
+    width: 90%;
     margin: 1vh auto;
 }
 
@@ -30,6 +30,7 @@
 
 .lowerHeader{
     background-repeat: no-repeat;
+    background-size: cover;
     margin-top: 1vh;
     height: 400px;
     display: flex;

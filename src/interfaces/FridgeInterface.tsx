@@ -3,4 +3,5 @@ export interface Fridge {
   width: number;
   height: number;
   color: string;
+  id: string;
 }

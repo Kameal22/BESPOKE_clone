@@ -1,8 +1,12 @@
 .configuratorDiv{
-    width: 80%;
+    width: 90%;
     margin: 1vh auto;
 }
 
 .configuratorComponents{
     display: flex;
+}
+
+.chooseFridgeAndColorDiv{
+    margin-left: 1em;
 }
