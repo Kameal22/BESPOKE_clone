@@ -17,6 +17,11 @@
     align-items: center;
 }
 
+.fridgeName{
+    width: 100px;
+    text-align: center;
+}
+
 .fridgeImg{
     border: 1px solid black;
     position: relative;
