@@ -6,10 +6,11 @@ import { useState } from "react";
 interface YourFridgeProps {
   chosenFridges: Fridge[];
   selectFridge: (fride: Fridge) => void;
+  highlightedFridge: Fridge | undefined;
+  highlightAFridge: (fridge: Fridge) => void;
 }
 
 const YourFridge: React.FC<YourFridgeProps> = (props) => {
-  const [highlightedFridge, setHighlightedFridge] = useState<Fridge>()
 
   const defaultFridge = Fridges[0];
 
@@ -23,12 +24,12 @@ const YourFridge: React.FC<YourFridgeProps> = (props) => {
           return (
             <div
               key={fridge.id}
-              onClick={() => setHighlightedFridge(fridge)}
+              onClick={() => props.highlightAFridge(fridge)}
               style={{
                 width: fridge.width * 2,
                 height: fridge.height * 3,
                 backgroundColor: fridge.color,
-                boxShadow: highlightedFridge?.id === fridge.id ? "rgb(65 194 233) 1px 1px 15px" : "none"
+                boxShadow: props.highlightedFridge?.id === fridge.id ? "rgb(65 194 233) 1px 1px 15px" : "none"
               }}
               className="fridge"
             >

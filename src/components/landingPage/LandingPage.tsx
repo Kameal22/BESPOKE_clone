@@ -9,15 +9,27 @@ const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
 
   const addFridge = (fridge: Fridge) => {
+    const fridgeWithID = JSON.parse(JSON.stringify(fridge))
+
+    fridgeWithID.id = uuidv4()
     if (chosenFridge.length < 3) {
-      setChosenFridge(prevState => [...prevState, fridge]);
+      setChosenFridge(prevState => [...prevState, fridgeWithID]);
     }
   };
+
+  const selectFridgeColor = (id: string | undefined, color: string) => {
+    const fridge = chosenFridge.map((fridge) => {
+      return (
+        fridge.id === id ? { ...fridge, color: color } : fridge
+      )
+    })
+    setChosenFridge(fridge)
+  }
 
   return (
     <div className="landingPageDiv">
       <Header />
-      <Configurator chosenFridges={chosenFridge} selectFridge={addFridge} />
+      <Configurator selectColor={selectFridgeColor} chosenFridges={chosenFridge} selectFridge={addFridge} />
     </div>
   );
 };
