@@ -11,10 +11,37 @@
 
 .interior{
     width: 80%;
-    border: 1px solid red;
+}
+
+.interior img {
+    max-width: 100%;
+    height: auto;
 }
 
 .interiorChoice{
     width: 20%;
-    border: 1px solid teal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.interiorChoice div{
+    max-width: 90%;
+    position: relative;
+}
+
+.interiorChoice img {
+    max-width: 100%;
+    height: auto;
+}
+
+.interiorDescription{
+    font-size: 1.3em;
+    color: ivory;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
 }
