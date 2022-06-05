@@ -4,6 +4,7 @@ import "./landingPage.css";
 import { useState } from "react";
 import { Fridge } from "../../interfaces/FridgeInterface";
 import { v4 as uuidv4 } from "uuid";
+import InteriorStyleChoice from "../interiorStyle/InteriorStyleChoice";
 
 const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
@@ -36,6 +37,7 @@ const LandingPage: React.FC = () => {
     <div className="landingPageDiv">
       <Header />
       <Configurator highlightedFridge={highlightedFridge} highlightAFridge={highlightAFridge} selectColor={selectFridgeColor} chosenFridges={chosenFridge} selectFridge={addFridge} />
+      <InteriorStyleChoice />
     </div>
   );
 };

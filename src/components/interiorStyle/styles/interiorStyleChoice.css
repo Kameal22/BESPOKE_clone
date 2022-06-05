@@ -1,0 +1,20 @@
+.interiorStyleChoiceDiv{
+    width: 90%;
+    margin: 4vh auto;
+}
+
+.interiorChoiceImages{
+    width: 100%;
+    margin: 2vh auto;
+    display: flex;
+}
+
+.interior{
+    width: 80%;
+    border: 1px solid red;
+}
+
+.interiorChoice{
+    width: 20%;
+    border: 1px solid teal;
+}
