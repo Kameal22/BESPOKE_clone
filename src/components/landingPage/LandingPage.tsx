@@ -12,6 +12,7 @@ const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
   const [highlightedFridge, setHighlightedFridge] = useState<Fridge>();
   const [cart, setCart] = useState<CartProductInterface[]>([]);
+  const [energyClass, setEnergyClass] = useState<string>("");
 
   const highlightAFridge = (fridge: Fridge) => {
     setHighlightedFridge(fridge);
@@ -38,28 +39,22 @@ const LandingPage: React.FC = () => {
     setChosenFridge(fridge);
   };
 
-  const selectFridgeEnergyClass = (
-    id: string | undefined,
-    energyClass: string
-  ) => {
-    const fridge = chosenFridge.map((fridge) => {
-      return fridge.id === id
-        ? { ...fridge, energyClass: energyClass }
-        : fridge;
-    });
-    setChosenFridge(fridge);
+  const selectEnergyClass = (energyClass: string) => {
+    setEnergyClass(energyClass);
   };
 
+  console.log(energyClass);
   return (
     <div className="landingPageDiv">
       <Header />
       <Configurator
+        energyClass={energyClass}
+        selectEnergyClass={selectEnergyClass}
         highlightedFridge={highlightedFridge}
         highlightAFridge={highlightAFridge}
         selectColor={selectFridgeColor}
         chosenFridges={chosenFridge}
         selectFridge={selectFridge}
-        selectEnergyClass={selectFridgeEnergyClass}
       />
       <InteriorStyleChoice />
       <Cart addToCart={addToCart} cart={cart} />

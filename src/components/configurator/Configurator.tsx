@@ -10,7 +10,8 @@ interface ConfiguratorProps {
   selectFridge: (fride: Fridge) => void;
   selectColor: (id: string | undefined, color: string) => void;
   highlightAFridge: (fridge: Fridge) => void;
-  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
+  selectEnergyClass: (energyClass: string) => void;
+  energyClass: string;
   highlightedFridge: Fridge | undefined;
   chosenFridges: Fridge[];
 }
@@ -43,8 +44,10 @@ const Configurator: React.FC<ConfiguratorProps> = (props) => {
 
       {props.chosenFridges.length < 1 ? null : (
         <ChooseEnergyClass
+          energyClass={props.energyClass}
           selectEnergyClass={props.selectEnergyClass}
           productName={props.highlightedFridge?.name}
+          productId={props.highlightedFridge?.id}
           productEnergyClass={props.highlightedFridge?.energyClass}
         />
       )}
