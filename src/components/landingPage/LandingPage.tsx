@@ -6,20 +6,14 @@ import { Fridge } from "../../interfaces/FridgeInterface";
 import { v4 as uuidv4 } from "uuid";
 import InteriorStyleChoice from "../interiorStyle/InteriorStyleChoice";
 import Cart from "../cart/Cart";
-import { CartProductInterface } from "../../interfaces/CartInterface";
 
 const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
   const [highlightedFridge, setHighlightedFridge] = useState<Fridge>();
-  const [cart, setCart] = useState<CartProductInterface[]>([]);
   const [energyClass, setEnergyClass] = useState<string>("");
 
   const highlightAFridge = (fridge: Fridge) => {
     setHighlightedFridge(fridge);
-  };
-
-  const addToCart = (cart: CartProductInterface) => {
-    setCart((prevState) => [...prevState, cart]);
   };
 
   const selectFridge = (fridge: Fridge) => {
@@ -57,7 +51,7 @@ const LandingPage: React.FC = () => {
         selectFridge={selectFridge}
       />
       <InteriorStyleChoice />
-      <Cart addToCart={addToCart} cart={cart} />
+      <Cart chosenFridge={chosenFridge} />
     </div>
   );
 };

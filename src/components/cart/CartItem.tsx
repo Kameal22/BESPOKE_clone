@@ -1,7 +1,8 @@
 import "./styles/cartItem.css";
-import { CartProductInterface } from "../../interfaces/CartInterface";
 
-const CartItem: React.FC<CartProductInterface> = (props) => {
+interface CartItemInterface {}
+
+const CartItem: React.FC<CartItemInterface> = (props) => {
   return <div className="cartItemDiv"></div>;
 };
 

@@ -1,10 +1,9 @@
 import CartSummary from "./CartSummary";
 import "./styles/cart.css";
-import { CartProductInterface } from "../../interfaces/CartInterface";
+import { Fridge } from "../../interfaces/FridgeInterface";
 
 interface CartProps {
-  cart: CartProductInterface[];
-  addToCart: (cart: CartProductInterface) => void;
+  chosenFridge: Fridge[];
 }
 
 const Cart: React.FC<CartProps> = (props) => {
@@ -22,11 +21,6 @@ const Cart: React.FC<CartProps> = (props) => {
         </p>
       </div>
 
-      {props.cart.length > 0
-        ? props.cart.map((cartItem) => {
-            return <div></div>;
-          })
-        : null}
       <CartSummary />
     </div>
   );
