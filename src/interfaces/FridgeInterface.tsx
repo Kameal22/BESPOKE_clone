@@ -4,4 +4,6 @@ export interface Fridge {
   height: number;
   color: string;
   id: string;
+  energyClass: string;
+  price: number;
 }

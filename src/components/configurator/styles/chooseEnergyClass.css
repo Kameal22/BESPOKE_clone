@@ -1,0 +1,39 @@
+.chooseEnergyClassDiv{
+    background-color: rgb(228, 228, 228);
+    width: 50%;
+    margin-top: -2vh;
+    text-transform: uppercase;
+}
+
+.energyProductName{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.energyInfo{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2vh;
+}
+
+.energyInfo span{
+    font-weight: bold;
+}
+
+.energyClass{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+}
+
+.energySelect{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(62, 139, 247);
+}

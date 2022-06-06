@@ -22,6 +22,11 @@ const Cart: React.FC<CartProps> = (props) => {
         </p>
       </div>
 
+      {props.cart.length > 0
+        ? props.cart.map((cartItem) => {
+            return <div></div>;
+          })
+        : null}
       <CartSummary />
     </div>
   );
