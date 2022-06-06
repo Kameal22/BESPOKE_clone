@@ -5,39 +5,45 @@ import { useState } from "react";
 import { Fridge } from "../../interfaces/FridgeInterface";
 import { v4 as uuidv4 } from "uuid";
 import InteriorStyleChoice from "../interiorStyle/InteriorStyleChoice";
+import Cart from "../cart/Cart";
 
 const LandingPage: React.FC = () => {
   const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
-  const [highlightedFridge, setHighlightedFridge] = useState<Fridge>()
+  const [highlightedFridge, setHighlightedFridge] = useState<Fridge>();
 
   const highlightAFridge = (fridge: Fridge) => {
-    setHighlightedFridge(fridge)
-  }
+    setHighlightedFridge(fridge);
+  };
 
   const addFridge = (fridge: Fridge) => {
-    const fridgeWithID = JSON.parse(JSON.stringify(fridge))
+    const fridgeWithID = JSON.parse(JSON.stringify(fridge));
 
-    fridgeWithID.id = uuidv4()
+    fridgeWithID.id = uuidv4();
     if (chosenFridge.length < 3) {
-      setChosenFridge(prevState => [...prevState, fridgeWithID]);
-      setHighlightedFridge(fridgeWithID)
+      setChosenFridge((prevState) => [...prevState, fridgeWithID]);
+      setHighlightedFridge(fridgeWithID);
     }
   };
 
   const selectFridgeColor = (id: string | undefined, color: string) => {
     const fridge = chosenFridge.map((fridge) => {
-      return (
-        fridge.id === id ? { ...fridge, color: color } : fridge
-      )
-    })
-    setChosenFridge(fridge)
-  }
+      return fridge.id === id ? { ...fridge, color: color } : fridge;
+    });
+    setChosenFridge(fridge);
+  };
 
   return (
     <div className="landingPageDiv">
       <Header />
-      <Configurator highlightedFridge={highlightedFridge} highlightAFridge={highlightAFridge} selectColor={selectFridgeColor} chosenFridges={chosenFridge} selectFridge={addFridge} />
+      <Configurator
+        highlightedFridge={highlightedFridge}
+        highlightAFridge={highlightAFridge}
+        selectColor={selectFridgeColor}
+        chosenFridges={chosenFridge}
+        selectFridge={addFridge}
+      />
       <InteriorStyleChoice />
+      <Cart />
     </div>
   );
 };

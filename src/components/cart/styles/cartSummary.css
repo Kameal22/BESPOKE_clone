@@ -1,0 +1,38 @@
+.cartSummaryDiv{
+    background-color: rgb(228, 228, 228);
+}
+
+.cartSummaryHeading{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.cartSummaryHeading h2{
+    font-size: 3rem;
+}
+
+.cartSummaryHeading h3{
+    text-transform: uppercase;
+}
+
+.addToCart{
+    padding: 12px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    background-color: gray;
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addToCart{
+    margin-bottom: 2vh;
+    margin-right: 2vh;
+    cursor: pointer;
+}

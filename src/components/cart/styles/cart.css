@@ -1,0 +1,23 @@
+.cartDiv{
+    width: 90%;
+    margin: 1vh auto;
+}
+
+.cartInfo{
+    width: 50%;
+    margin: 1vh auto;
+}
+
+.cartInfo p{
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1em;
+}
+
+.cartInfo h2{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+}
