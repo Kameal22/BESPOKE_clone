@@ -1,11 +1,26 @@
 import "./styles/chooseEnergyClass.css";
 import { EnergyClasses } from "../../assets/EnergyClasses";
+import { useState } from "react";
 
 interface ChooseEnergyInterface {
   productName: string | undefined;
+  productEnergyClass: string | undefined;
+  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
 }
 
 const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
+  const [energyClass, setEnergyClass] = useState<string>("");
+
+  const handleEnergyClassChange = (
+    e: React.FormEvent<HTMLSelectElement>
+  ): void => {
+    setEnergyClass(e.currentTarget.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="chooseEnergyClassDiv">
       <div className="energyInfo">
@@ -22,7 +37,14 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
         <p>Klasa energetyczna:</p>
         <select className="energySelect">
           {EnergyClasses.map((eclass) => {
-            return <option className="energyOption">{eclass}</option>;
+            return (
+              <option
+                defaultValue={props.productEnergyClass}
+                className="energyOption"
+              >
+                {eclass}
+              </option>
+            );
           })}
         </select>
       </div>

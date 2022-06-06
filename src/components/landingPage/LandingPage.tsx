@@ -38,6 +38,18 @@ const LandingPage: React.FC = () => {
     setChosenFridge(fridge);
   };
 
+  const selectFridgeEnergyClass = (
+    id: string | undefined,
+    energyClass: string
+  ) => {
+    const fridge = chosenFridge.map((fridge) => {
+      return fridge.id === id
+        ? { ...fridge, energyClass: energyClass }
+        : fridge;
+    });
+    setChosenFridge(fridge);
+  };
+
   return (
     <div className="landingPageDiv">
       <Header />
@@ -47,6 +59,7 @@ const LandingPage: React.FC = () => {
         selectColor={selectFridgeColor}
         chosenFridges={chosenFridge}
         selectFridge={selectFridge}
+        selectEnergyClass={selectFridgeEnergyClass}
       />
       <InteriorStyleChoice />
       <Cart addToCart={addToCart} cart={cart} />
