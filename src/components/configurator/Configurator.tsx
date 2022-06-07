@@ -3,7 +3,6 @@ import "./styles/configurator.css";
 import YourFridge from "./YourFridge";
 import { Fridge } from "../../interfaces/FridgeInterface";
 import ChooseColors from "./ChooseColors";
-import { useState } from "react";
 import ChooseEnergyClass from "./ChooseEnergyClass";
 
 interface ConfiguratorProps {

@@ -1,7 +1,6 @@
 import "./styles/yourFridge.css";
 import { Fridge } from "../../interfaces/FridgeInterface";
 import { Fridges } from "../../assets/Fridges";
-import { useState } from "react";
 
 interface YourFridgeProps {
   chosenFridges: Fridge[];

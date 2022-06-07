@@ -38,6 +38,12 @@ const LandingPage: React.FC = () => {
         ? { ...fridge, energyClass: energyClass }
         : fridge;
     });
+    const tmpHighligthed = highlightedFridge
+
+    if (tmpHighligthed) {
+      tmpHighligthed.energyClass = energyClass
+    }
+    setHighlightedFridge(tmpHighligthed)
     setChosenFridge(fridge);
   };
 
