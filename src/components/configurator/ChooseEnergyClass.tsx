@@ -6,8 +6,7 @@ interface ChooseEnergyInterface {
   productName: string | undefined;
   productId: string | undefined;
   productEnergyClass: string | undefined;
-  energyClass: string;
-  selectEnergyClass: (energyClass: string) => void;
+  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
 }
 
 const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
@@ -16,8 +15,14 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
   const handleEnergyClassChange = (
     e: React.FormEvent<HTMLSelectElement>
   ): void => {
-    props.selectEnergyClass(e.currentTarget.value);
+    props.selectEnergyClass(props.productId, e.currentTarget.value);
   };
+
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  // };
+
+  console.log(props.productEnergyClass, props.productName);
 
   return (
     <div className="chooseEnergyClassDiv">
@@ -34,13 +39,10 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
       <div className="energyClass">
         <p>Klasa energetyczna:</p>
         <select
-          value={props.energyClass}
+          value={props.productEnergyClass}
           onChange={handleEnergyClassChange}
           className="energySelect"
         >
-          <option value="" disabled selected>
-            Select energy class
-          </option>
           {EnergyClasses.map((eclass) => {
             return (
               <option key={eclass} value={eclass} className="energyOption">
@@ -49,6 +51,7 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
             );
           })}
         </select>
+        <input style={{ display: "none" }} type="submit" value="Wyślij" />
       </div>
     </div>
   );
