@@ -1,6 +1,6 @@
 import "./styles/chooseEnergyClass.css";
 import { EnergyClasses } from "../../assets/EnergyClasses";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ChooseEnergyInterface {
   productName: string | undefined;
@@ -10,19 +10,17 @@ interface ChooseEnergyInterface {
 }
 
 const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
-  const [energyClass, setEnergyClass] = useState<string>("");
+  const [energyClass, setEnergyClass] = useState<string>("E (roczny pobór: 264 kWh ≈ 163,68 zł)");
+
+  useEffect(() => {
+    props.selectEnergyClass(props.productId, energyClass)
+  }, [energyClass])
 
   const handleEnergyClassChange = (
     e: React.FormEvent<HTMLSelectElement>
   ): void => {
-    props.selectEnergyClass(props.productId, e.currentTarget.value);
+    setEnergyClass(e.currentTarget.value)
   };
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  // };
-
-  console.log(props.productEnergyClass, props.productName);
 
   return (
     <div className="chooseEnergyClassDiv">
@@ -39,7 +37,7 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
       <div className="energyClass">
         <p>Klasa energetyczna:</p>
         <select
-          value={props.productEnergyClass}
+          value={energyClass}
           onChange={handleEnergyClassChange}
           className="energySelect"
         >
