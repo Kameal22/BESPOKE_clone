@@ -27,7 +27,7 @@ const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
         </p>
       </div>
 
-      <div className="energyClass">
+      <div className="energyClassDiv">
         <p>Klasa energetyczna:</p>
         <select
           value={props.productEnergyClass}

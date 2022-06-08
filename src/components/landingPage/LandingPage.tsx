@@ -11,22 +11,13 @@ const LandingPage: React.FC = () => {
   const [fridgeComponent, setFridgeComponent] = useState<Fridge[]>([]);
 
   const highlightAFridge = (id: string | undefined) => {
-    if (fridgeComponent.some((fridge) => fridge.isHighlighted === true)) {
-      //Check if any fridge is highlighted.
-      fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false)); // Set them all to non-highlighted
+    fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false)); // Set them all to non-highlighted
 
-      const fridge = fridgeComponent.map((fridge) => {
-        return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
-      });
+    const fridge = fridgeComponent.map((fridge) => {
+      return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
+    });
 
-      setFridgeComponent(fridge);
-    } else {
-      const fridge = fridgeComponent.map((fridge) => {
-        return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
-      });
-
-      setFridgeComponent(fridge);
-    }
+    setFridgeComponent(fridge);
   };
 
   const highlightedFridge = fridgeComponent.find(

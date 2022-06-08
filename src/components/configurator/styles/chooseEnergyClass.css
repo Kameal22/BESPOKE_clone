@@ -21,14 +21,10 @@
     font-weight: bold;
 }
 
-.energyClass{
+.energyClassDiv{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vh;
 }
 
 .energySelect{
