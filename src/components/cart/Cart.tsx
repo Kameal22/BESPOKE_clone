@@ -5,6 +5,8 @@ import CartItem from "./CartItem";
 
 interface CartProps {
   chosenFridge: Fridge[];
+  highlightedFridge: Fridge | undefined;
+  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
 }
 
 const Cart: React.FC<CartProps> = (props) => {
@@ -26,14 +28,17 @@ const Cart: React.FC<CartProps> = (props) => {
         ? props.chosenFridge.map((fridge) => {
             return (
               <CartItem
+                selectEnergyClass={props.selectEnergyClass}
                 key={fridge.id}
+                fridgeId={fridge.id}
                 fridgeName={fridge.name}
-                energyClass={fridge.energyClass}
+                fridgeEnergyClass={fridge.energyClass}
+                fridgePrice={fridge.price}
               />
             );
           })
         : null}
-      <CartSummary />
+      <CartSummary chosenFridge={props.chosenFridge} />
     </div>
   );
 };

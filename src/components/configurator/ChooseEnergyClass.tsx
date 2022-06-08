@@ -1,6 +1,5 @@
 import "./styles/chooseEnergyClass.css";
 import { EnergyClasses } from "../../assets/EnergyClasses";
-import { useState, useEffect } from "react";
 
 interface ChooseEnergyInterface {
   productName: string | undefined;
@@ -10,11 +9,10 @@ interface ChooseEnergyInterface {
 }
 
 const ChooseEnergyClass: React.FC<ChooseEnergyInterface> = (props) => {
-
   const handleEnergyClassChange = (
     e: React.FormEvent<HTMLSelectElement>
   ): void => {
-    props.selectEnergyClass(props.productId, e.currentTarget.value)
+    props.selectEnergyClass(props.productId, e.currentTarget.value);
   };
 
   return (

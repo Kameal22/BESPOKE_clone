@@ -24,15 +24,13 @@
     color: white;
     border-radius: 20px;
     background-color: gray;
+    margin-bottom: 2vh;
+    margin-right: 2vh;
+    cursor: pointer;
+    cursor: not-allowed;
 }
 
 .buttonDiv{
     display: flex;
     justify-content: flex-end;
-}
-
-.addToCart{
-    margin-bottom: 2vh;
-    margin-right: 2vh;
-    cursor: pointer;
 }

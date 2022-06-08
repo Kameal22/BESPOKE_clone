@@ -18,6 +18,15 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1vh;
+    position: relative;
+}
+
+#removeFridge{
+    position: absolute;
+    left: 50%;
+    top: -5%;
+    transform: translate(-50%, 0);
+    z-index: 9999;
 }
 
 .fridge i{

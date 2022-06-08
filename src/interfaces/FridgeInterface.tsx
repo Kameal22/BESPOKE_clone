@@ -6,4 +6,5 @@ export interface Fridge {
   id: string;
   energyClass: string;
   price: number;
+  isHighlighted: boolean;
 }

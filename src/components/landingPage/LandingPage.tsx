@@ -8,58 +8,92 @@ import InteriorStyleChoice from "../interiorStyle/InteriorStyleChoice";
 import Cart from "../cart/Cart";
 
 const LandingPage: React.FC = () => {
-  const [chosenFridge, setChosenFridge] = useState<Fridge[]>([]);
-  const [highlightedFridge, setHighlightedFridge] = useState<Fridge>();
+  const [fridgeComponent, setFridgeComponent] = useState<Fridge[]>([]);
 
-  const highlightAFridge = (fridge: Fridge) => {
-    setHighlightedFridge(fridge);
-  };
+  const highlightAFridge = (id: string | undefined) => {
+    if (fridgeComponent.some((fridge) => fridge.isHighlighted === true)) {
+      //Check if any fridge is highlighted.
+      fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false)); // Set them all to non-highlighted
 
-  const selectFridge = (fridge: Fridge) => {
-    const fridgeWithID = JSON.parse(JSON.stringify(fridge));
+      const fridge = fridgeComponent.map((fridge) => {
+        return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
+      });
 
-    fridgeWithID.id = uuidv4();
-    if (chosenFridge.length < 3) {
-      setChosenFridge((prevState) => [...prevState, fridgeWithID]);
-      setHighlightedFridge(fridgeWithID);
+      setFridgeComponent(fridge);
+    } else {
+      const fridge = fridgeComponent.map((fridge) => {
+        return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
+      });
+
+      setFridgeComponent(fridge);
     }
   };
 
+  const highlightedFridge = fridgeComponent.find(
+    (fridge) => fridge.isHighlighted === true
+  );
+
+  const selectFridge = (fridge: Fridge) => {
+    const fridgeWithID = JSON.parse(JSON.stringify(fridge)); //Deep cloning to change an ID
+    if (fridgeComponent.length < 3) {
+      if (fridgeComponent.some((fridge) => fridge.isHighlighted === true)) {
+        fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false));
+
+        fridgeWithID.id = uuidv4();
+        fridgeWithID.isHighlighted = true;
+
+        setFridgeComponent((prevState) => [...prevState, fridgeWithID]);
+      } else {
+        fridgeWithID.isHighlighted = true;
+        fridgeWithID.id = uuidv4();
+
+        setFridgeComponent((prevState) => [...prevState, fridgeWithID]);
+      }
+    }
+  };
+
+  const removeFridge = (id: string | undefined) => {
+    const fridgeToRemove = fridgeComponent.findIndex(
+      (fridge) => fridge.id === id
+    );
+
+    setFridgeComponent(fridgeComponent.splice(fridgeToRemove, 1));
+  };
+
   const selectFridgeColor = (id: string | undefined, color: string) => {
-    const fridge = chosenFridge.map((fridge) => {
+    const fridge = fridgeComponent.map((fridge) => {
       return fridge.id === id ? { ...fridge, color: color } : fridge;
     });
-    setChosenFridge(fridge);
+    setFridgeComponent(fridge);
   };
 
   const selectEnergyClass = (id: string | undefined, energyClass: string) => {
-    const fridge = chosenFridge.map((fridge) => {
+    const fridge = fridgeComponent.map((fridge) => {
       return fridge.id === id
         ? { ...fridge, energyClass: energyClass }
         : fridge;
     });
-    const tmpHighligthed = highlightedFridge
-
-    if (tmpHighligthed) {
-      tmpHighligthed.energyClass = energyClass
-    }
-    setHighlightedFridge(tmpHighligthed)
-    setChosenFridge(fridge);
+    setFridgeComponent(fridge);
   };
 
   return (
     <div className="landingPageDiv">
       <Header />
       <Configurator
+        removeFridge={removeFridge}
         selectEnergyClass={selectEnergyClass}
         highlightedFridge={highlightedFridge}
-        highlightAFridge={highlightAFridge}
+        highlightFridge={highlightAFridge}
         selectColor={selectFridgeColor}
-        chosenFridges={chosenFridge}
+        chosenFridges={fridgeComponent}
         selectFridge={selectFridge}
       />
       <InteriorStyleChoice />
-      <Cart chosenFridge={chosenFridge} />
+      <Cart
+        highlightedFridge={highlightedFridge}
+        selectEnergyClass={selectEnergyClass}
+        chosenFridge={fridgeComponent}
+      />
     </div>
   );
 };

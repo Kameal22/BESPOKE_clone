@@ -7,6 +7,7 @@ export const Fridges = [
     id: "",
     energyClass: "E (roczny pobór: 264 kWh ≈ 163,68 zł)",
     price: 2500,
+    isHighlighted: false,
   },
   {
     name: "Lodówka",
@@ -16,6 +17,7 @@ export const Fridges = [
     id: "",
     energyClass: "E (roczny pobór: 264 kWh ≈ 163,68 zł)",
     price: 1500,
+    isHighlighted: false,
   },
   {
     name: "Zamrażarka",
@@ -25,6 +27,7 @@ export const Fridges = [
     id: "",
     energyClass: "E (roczny pobór: 264 kWh ≈ 163,68 zł)",
     price: 1000,
+    isHighlighted: false,
   },
   {
     name: "Lodówka Slim",
@@ -34,5 +37,6 @@ export const Fridges = [
     id: "",
     energyClass: "E (roczny pobór: 264 kWh ≈ 163,68 zł)",
     price: 800,
+    isHighlighted: false,
   },
 ];

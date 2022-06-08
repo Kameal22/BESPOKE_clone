@@ -8,10 +8,11 @@ import ChooseEnergyClass from "./ChooseEnergyClass";
 interface ConfiguratorProps {
   selectFridge: (fride: Fridge) => void;
   selectColor: (id: string | undefined, color: string) => void;
-  highlightAFridge: (fridge: Fridge) => void;
-  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
+  highlightFridge: (id: string | undefined) => void;
   highlightedFridge: Fridge | undefined;
+  selectEnergyClass: (id: string | undefined, energyClass: string) => void;
   chosenFridges: Fridge[];
+  removeFridge: (id: string | undefined) => void;
 }
 
 const Configurator: React.FC<ConfiguratorProps> = (props) => {
@@ -21,7 +22,8 @@ const Configurator: React.FC<ConfiguratorProps> = (props) => {
 
       <div className="configuratorComponents">
         <YourFridge
-          highlightAFridge={props.highlightAFridge}
+          removeFridge={props.removeFridge}
+          highlightFridge={props.highlightFridge}
           highlightedFridge={props.highlightedFridge}
           selectFridge={props.selectFridge}
           chosenFridges={props.chosenFridges}
