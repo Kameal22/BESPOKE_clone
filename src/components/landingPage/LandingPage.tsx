@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
   const [fridgeComponent, setFridgeComponent] = useState<Fridge[]>([]);
 
   const highlightAFridge = (id: string | undefined) => {
-    fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false)); // Set them all to non-highlighted
+    fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false)); // Set all fridges to non-highlighted
 
     const fridge = fridgeComponent.map((fridge) => {
       return fridge.id === id ? { ...fridge, isHighlighted: true } : fridge;
@@ -26,20 +26,14 @@ const LandingPage: React.FC = () => {
 
   const selectFridge = (fridge: Fridge) => {
     const fridgeWithID = JSON.parse(JSON.stringify(fridge)); //Deep cloning to change an ID
+
     if (fridgeComponent.length < 3) {
-      if (fridgeComponent.some((fridge) => fridge.isHighlighted === true)) {
-        fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false));
+      fridgeComponent.forEach((fridge) => (fridge.isHighlighted = false));
 
-        fridgeWithID.id = uuidv4();
-        fridgeWithID.isHighlighted = true;
+      fridgeWithID.id = uuidv4();
+      fridgeWithID.isHighlighted = true;
 
-        setFridgeComponent((prevState) => [...prevState, fridgeWithID]);
-      } else {
-        fridgeWithID.isHighlighted = true;
-        fridgeWithID.id = uuidv4();
-
-        setFridgeComponent((prevState) => [...prevState, fridgeWithID]);
-      }
+      setFridgeComponent((prevState) => [...prevState, fridgeWithID]);
     }
   };
 
