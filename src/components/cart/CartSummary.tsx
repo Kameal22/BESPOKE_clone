@@ -25,7 +25,7 @@ const CartSummary: React.FC<CartSummaryProps> = (props) => {
     <div className="cartSummaryDiv">
       <div className="cartSummaryHeading">
         <h3>Całkowity koszt zestawu</h3>
-        <h2>{summarizeCartPrice()}</h2>
+        <h2>{summarizeCartPrice()} zł</h2>
       </div>
 
       <div className="buttonDiv">

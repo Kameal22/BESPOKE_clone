@@ -11,7 +11,6 @@ const ChooseColors: React.FC<ChooseColorsProps> = (props) => {
   return (
     <div className="chooseColorsDiv">
       <h2>Wybierz materiał i kolor frontu</h2>
-      <h3>Some colors example</h3>
       <div className="colorsDiv">
         {Colors.map((color) => {
           return (

@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.chooseColorsDiv h2{
+    text-transform: uppercase;
+}
+
 .colorsDiv{
     display: flex;
     justify-content: space-between;
@@ -22,4 +26,10 @@
 
 .singleDiv{
     width: 20%;
+}
+
+@media screen and (max-width: 1100px){
+    .chooseColorsDiv{
+        margin-left: 0;
+    }
 }
