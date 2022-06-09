@@ -73,7 +73,7 @@ const LandingPage: React.FC = () => {
         chosenFridges={fridgeComponent}
         selectFridge={selectFridge}
       />
-      <InteriorStyleChoice />
+      <InteriorStyleChoice chosenFridges={fridgeComponent} />
       <Cart
         highlightedFridge={highlightedFridge}
         selectEnergyClass={selectEnergyClass}

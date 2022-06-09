@@ -4,8 +4,13 @@ import minimalistyczny from "../../imgs/minimalistyczny.png";
 import nowoczesny from "../../imgs/nowoczesny.png";
 import skandynawski from "../../imgs/skandynawski.png";
 import { useState } from "react";
+import { Fridge } from "../../interfaces/FridgeInterface";
 
-const InteriorStyleChoice: React.FC = () => {
+interface InteriorStyleChoice {
+  chosenFridges: Fridge[];
+}
+
+const InteriorStyleChoice: React.FC<InteriorStyleChoice> = (props) => {
   const [shownImage, setShownImage] = useState<string>(loft);
 
   const images = [
